@@ -65,6 +65,7 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
@@ -110,6 +111,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')  # або інше, зале
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),  # цей каталог може містити ваші статичні файли
 ]
+
 
 
 MEDIA_URL = '/media/'

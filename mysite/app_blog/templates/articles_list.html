@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Публікації</title>
+    
+</head>
+<body>
+    <h1>Публікації</h1>
+    <a href="{% url 'home' %}">На головну</a>
+
+    {% if category %}
+        <h2>Категорія: {{ category }}</h2>
+    {% endif %}
+    
+    {% for item in items %}
+        <div class="articles-row">
+            <a href="{{ item.get_absolute_url }}">
+                <h4>{{ item.title }}</h4>
+            </a>
+            <h5>
+                {{ item.pub_date|date:"j E Y"|safe|linebreaks }}
+            </h5>
+            <p>
+                {{ item.description|safe|escape|striptags|truncatewords_html:32 }}
+            </p>
+            <div class="container-image">
+                {% if item.images.all %}
+                    <img class="img" src="{{ item.images.all.0.image.url }}" alt="{{ item.title }}" />
+                {% endif %}
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    {% empty %}
+        <p>Статей немає.</p>
+    {% endfor %}
+</body>
+</html>
+

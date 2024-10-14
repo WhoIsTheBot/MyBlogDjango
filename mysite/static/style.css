@@ -1,0 +1,84 @@
+/* styles.css */
+
+/* Загальні стилі */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+h1, h2, h3, h4, h5 {
+    color: #333;
+}
+
+/* Стилі для заголовків */
+h1 {
+    text-align: center;
+    margin: 20px 0;
+}
+
+h2 {
+    margin-top: 40px;
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+}
+
+/* Стилі для контейнерів статей */
+div {
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    margin: 15px auto;
+    padding: 15px;
+    max-width: 800px;
+}
+
+/* Стилі для посилань */
+a {
+    text-decoration: none;
+    color: #007bff; /* Синій колір для посилань */
+}
+
+a:hover {
+    text-decoration: underline; /* Підкреслення при наведенні */
+}
+
+/* Стилі для зображень */
+.container-image {
+    text-align: center;
+}
+
+.img {
+    max-width: 100%;
+    height: auto; /* Зберігає пропорції зображення */
+}
+
+/* Стилі для хлібних крихт */
+.breadcrumb {
+    background-color: #e9ecef;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.breadcrumb li {
+    display: inline;
+}
+
+.breadcrumb li + li::before {
+    content: " > "; /* Роздільник між елементами */
+}
+
+/* Стилі для кнопок */
+button {
+    background-color: #007bff; /* Синій фон кнопки */
+    color: white; 
+    border: none; 
+    padding: 10px 15px; 
+    border-radius: 5px; 
+}
+
+button:hover {
+    background-color: #0056b3; /* Темніший синій при наведенні */
+}

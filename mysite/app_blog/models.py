@@ -5,15 +5,24 @@ from django.urls import reverse
 
 # Create your models here.
 class Category(models.Model):
-    category = models.CharField('Категорія', max_length=250, help_text='Максимум 250 символів')
-    slug = models.SlugField('Слаг', unique=True)  # Додаємо поле slug
+    category = models.CharField(u'Категорія', max_length=250, help_text=u'Максимум 250 символів')
+    slug = models.SlugField(u'Слаг', unique=True)  # Додано унікальність для slug
+    objects = models.Manager()  # Менеджер моделі
 
     class Meta:
-        verbose_name = 'Категорія для новини'
-        verbose_name_plural = 'Категорії для новин'
+        verbose_name = u'Категорія для публікації'
+        verbose_name_plural = u'Категорії для публікацій'
 
     def __str__(self):
         return self.category
+
+    def get_absolute_url(self):
+        try:
+            url = reverse('articles-category-list', kwargs={'slug': self.slug})
+        except Exception as e:
+            print(f"Error in get_absolute_url: {e}")  # Додано виведення помилок
+            url = "/"
+        return url
 
 
 class Article(models.Model):
